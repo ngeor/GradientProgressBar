@@ -1,0 +1,29 @@
+Installation steps for installing GradientProgressBar Control
+
+1. Unzip the contents of the archive in a folder, e.g. C:\Components\GPB.
+GPB.bpl, GPB.dcp and GradientProgressBar.dcu are needed to install this control.
+2. Start Delphi.
+3. From the main menu, select File, then Close All.
+4. From the main menu, select Component, then Install Packages.
+5. In the dialog box that appears, select Add.
+6. Locate GPB.bpl in the folder where you put it in step 1. (C:\Components\GPB)
+7. GradientProgressBar Control should appear in the list of the design packages. Close this dialog box using the OK button.
+8. In the component palette, a new page named 'N.G.' should appear.
+The page is added at the end so if you can't see it at first (for example, if you have many pages on the component palette) try using the arrows to scroll to the end of the palette.
+9. In that page, a component named GradientProgressBar should appear.
+10. Start a new application to test the component. From the main menu select File, then New Application.
+11. Insert a GradientProgressBar control. If you are using the shareware version, a message will appear.
+12. Play around with the control's properties. When you're done, run the application.
+13. If you get a "[Fatal Error] File not found: 'GradientProgressBar.dcu'" error then you should
+add the folder where you put GradientProgressBar.dcu to the Library Path. This is done in the following way:
+	a. From the main menu select Tools, then Environment Options.
+	b. In the dialog box that appears, select the Library page.
+	c. The Library Path lists the directories where Delphi looks for dcu files (among other things).
+	    The directories are separated with semicolons (;). Go to the end of the text and
+	    type the folder where you extracted the files in Step 1. (C:\Components\GPB).
+	    For example if your Library Path looks like:
+	    $(DELPHI)\Lib;$(DELPHI)\Bin;$(DELPHI)\Imports;$(DELPHI)\Projects\Bpl
+	    change it to:
+	    $(DELPHI)\Lib;$(DELPHI)\Bin;$(DELPHI)\Imports;$(DELPHI)\Projects\Bpl;C:\Components\GPB
+	    Make sure that you separate the path you add from the original text with a semicolon.
+

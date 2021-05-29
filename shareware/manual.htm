@@ -1,0 +1,116 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<title>TGradientProgressBar control</title>
+<style><!--
+.Normal
+	{font-size:10.0pt;
+	font-family:"Verdana";}
+-->
+</style>
+</head>
+<body lang=EN-US class="Normal" bgcolor="#ffffff">
+<h1>TGradientProgressBar control</h1>
+<h2>About</h2>
+<p>This is the manual of TGradientProgressBar control, version 1.0, released on 
+  23th July 2002. TGradientProgressBar is a shareware Delphi component written 
+  by Nikolaos Georgiou.</p>
+<p></p>
+<h2>Description</h2>
+<p>TGradientProgressBar is a replacement for the standard Windows progress bar. 
+  It offers three different colorful appearances:</p>
+<ol start=1 type=1>
+  <li>Gradient fill. You select two colors for the progress bar and a rainbow-like 
+    fill is applied to the progress bar, shifting smoothly from one color to another.<br>
+    <img width=153 height=16
+     src="./manual.files/image001.png"><br>
+    <br>
+  </li>
+  <li>Changing color. Again, you select two colors. The progress bar’s color changes 
+    according to its position using an appropriate mix of the two colors.<br>
+    <img width=240 height=64
+     src="./manual.files/image003.png"></li>
+  <li>One color only. This is the standard progress bar. You can use this option 
+    if you don’t want anything fancy.</li>
+</ol>
+<p>TGradientProgressBar descends directly from TGraphicControl thus it uses less 
+  resources than the standard Windows progress bar which is a windowed control.</p>
+<p>&nbsp;</p>
+<h2>Properties</h2>
+<p>property BackColor: TColor;</p>
+<p>BackColor is used to fill the interior of the control.</p>
+<hr>
+<p><a name="p_BorderColor"></a>property BorderColor: TColor;</p>
+<p>BorderColor is used to paint the border of the control when <a href="#p_BorderStyle">BorderStyle</a> 
+  is set to bsFlat.</p>
+<hr>
+<p><a name="p_BorderStyle"></a>property BorderStyle: TGPBBorderStyle;</p>
+<p>type TGPBBorderStyle = (bsNone, bsRaised, bsLowered, bsFlat, bsSpace);</p>
+<p>BorderStyle is used to select the appearance of the border. The following values 
+  are used:</p>
+<ul type=disc>
+  <li>bsNone. No border will be painted and the progress bar will occupy the entire 
+    client area of the control.</li>
+  <li>bsRaised. A raised border will be painted.</li>
+  <li>bsLowered. A lowered border will be painted.</li>
+  <li>bsFlat. A flat border will be painted, using the color specified by <a href="#p_BorderColor">BorderColor</a>.</li>
+  <li>bsSpace. No border will be painted but the progress bar will be limited 
+    by <a href="#p_BorderWidth">BorderWidth</a>.</li>
+</ul>
+<hr>
+<p><a name="p_BorderWidth"></a>property BorderWidth: Integer;</p>
+<p>BorderWidth specified the amount of empty space that will seperate the progress 
+  bar from its border.</p>
+<hr>
+<p><a name="p_ColorOption"></a>property ColorOption: TGPBColorOption;</p>
+<p>TGPBColorOption = (coGradient, coChangingColor, coOneColor);</p>
+<p>ColorOption specifies the appearance of the control. The following illustration 
+  shows how the TGradientProgressBar control appears in each possible value of 
+  ColorOption.</p>
+<p><img width=420 height=102
+src="./manual.files/image005.png"></p>
+<hr>
+<p><a name="p_Direction"></a>property Direction: TGPBDirection;</p>
+<p>TGPBDirection = (diHorizontal, diVertical);</p>
+<p>Direction is a property that controls the appearance of TGradientProgressBar. 
+  It has two possible values:</p>
+<ul type=disc>
+  <li>diHorizontal. Progress advances from left to right.</li>
+  <li>diVertical. Progress advances from bottom to top.</li>
+</ul>
+<hr>
+<p><a name="p_Min"></a>property Min: Integer;</p>
+<p>The minimum value of the control’s position. It must be less than <a href="#p_Max">Max</a> 
+  or an exception will be raised.</p>
+<hr>
+<p><a name="p_MinColor"></a>property MinColor: TColor;</p>
+<p>The color used to indicate the minimum value. It is used in conjunction with 
+  <a href="#p_MaxColor">MaxColor</a> to make all possible colors when <a href="#p_ColorOption">ColorOption</a> 
+  is either coGradient or coChangingColor.</p>
+<hr>
+<p><a name="p_Max"></a>property Max: Integer;</p>
+<p>The maximum value of the control’s position. It must be greater than <a href="#p_Min">Min</a> 
+  or an exception will be raised.</p>
+<hr>
+<p><a name="p_MaxColor"></a>property MaxColor: TColor;</p>
+<p>The color used to indicate the maximum value. See <a href="#p_MinColor">MinColor</a>.</p>
+<hr>
+<p><a name="p_Position"></a>property Position: Integer;</p>
+<p>The progress’ current position. It must be greater or equal than <a href="#p_Min">Min</a> 
+  and less or equal than <a href="#p_Max">Max</a>. If these bounds are violated, 
+  an exception will be raised.</p>
+<hr>
+<p><a name="p_Step"></a>property Step: Integer;</p>
+<p>The amount that will be added to Position by a call to <a href="#m_StepIt">StepIt</a>. 
+  If you enter a negative value, <a href="#m_StepIt">StepIt</a> will decrease 
+  <a href="#p_Position">Position</a>.</p>
+<p>&nbsp;</p>
+<h2>Methods</h2>
+<p><a name="m_StepIt"></a>procedure StepIt;</p>
+<p>Increments <a href="#p_Position">Position</a> by <a href="#p_Step">Step</a> 
+  (or decreases it if <a href="#p_Step">Step</a> is negative). If this variation 
+  causes <a href="#p_Position">Position</a> to break the limits of <a href="#p_Min">Min</a> 
+  or <a href="#p_Max">Max</a> an exception will <b>not</b> be raised. Instead, 
+  the value will be adjusted to fit in the bounds in a circular manner.</p>
+</body>
+</html>
